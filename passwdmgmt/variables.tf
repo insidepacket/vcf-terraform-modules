@@ -32,3 +32,9 @@ variable "account_type" {
   type        = string
   default     = "USER"
 }
+
+variable "vault_url" {
+  description = "Hashicorp Vault"
+  type        = string
+  default     = "http://127.0.0.1:8200"
+}
