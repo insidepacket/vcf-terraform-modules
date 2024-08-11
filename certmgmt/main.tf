@@ -55,7 +55,7 @@ resource "vcf_certificate" "nsx_cert" {
 }
 
 locals {
-  nsx_manager_node_map  = { for idx, node in data.vcf_domain.domain1.nsx_configuration[0].nsx_manager_node : idx => node }
+  nsx_manager_node_map = { for idx, node in data.vcf_domain.domain1.nsx_configuration[0].nsx_manager_node : idx => node }
 }
 
 resource "vcf_csr" "nsx_manager_csr" {

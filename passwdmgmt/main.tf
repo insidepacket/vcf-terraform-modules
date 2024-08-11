@@ -5,21 +5,21 @@ data "vcf_credentials" "sddc_creds" {
 
 locals {
   credentials_map = { for idx, cred in data.vcf_credentials.sddc_creds.credentials : idx => {
-    resource_name             = cred.resource[0].name
-    resource_type             = cred.resource[0].type
-    resource_domain           = cred.resource[0].domain
+    resource_name   = cred.resource[0].name
+    resource_type   = cred.resource[0].type
+    resource_domain = cred.resource[0].domain
     #auto_rotate_next_schedule = cred.auto_rotate_next_schedule
-    credential_type           = cred.credential_type
-    user_name                 = cred.user_name
-    password                  = cred.password
+    credential_type = cred.credential_type
+    user_name       = cred.user_name
+    password        = cred.password
   } }
 }
 
 resource "vcf_credentials_rotate" "rotate" {
-  for_each = local.credentials_map
+  for_each      = local.credentials_map
   resource_name = each.value.resource_name
   resource_type = each.value.resource_type
-  once_only = false
+  once_only     = false
   credentials {
     credential_type = each.value.credential_type
     user_name       = each.value.user_name
@@ -42,10 +42,10 @@ resource "vault_kv_secret_v2" "vault_secrets" {
   custom_metadata {
     max_versions = 100
     data = {
-      category                  = "vcf"
-      system                    = each.value.resource_name
-      type                      = each.value.credential_type
-      vcf_domain                = each.value.resource_domain
+      category   = "vcf"
+      system     = each.value.resource_name
+      type       = each.value.credential_type
+      vcf_domain = each.value.resource_domain
     }
   }
   depends_on = [
