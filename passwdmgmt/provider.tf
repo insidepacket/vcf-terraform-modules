@@ -19,5 +19,5 @@ provider "vcf" {
 }
 
 provider "vault" {
-  address = var.vault_url
+  address = var.vault_address
 }
