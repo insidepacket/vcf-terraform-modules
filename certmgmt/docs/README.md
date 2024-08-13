@@ -14,4 +14,6 @@ This module can be used to renew vCenter and NSX certificates (including NSX Clu
 * Replace the current certificates with new CA signed certificates
 
 ## Constraints
-As VMware Cloud Foundation SDDC Manager only allow one certificate operation at a time. Using `-parallelism=1` is required when running `terraform apply`. 
+As VMware Cloud Foundation SDDC Manager only allow one certificate operation at a time. Using `-parallelism=1` is required when running `terraform apply`: `terraform apply -parallelism=1`
+
+Note: -parallelism=n - Limit the number of concurrent operation as Terraform apply your template. Defaults to 10
