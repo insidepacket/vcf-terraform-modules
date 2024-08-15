@@ -4,11 +4,10 @@ data "vcf_credentials" "sddc_creds" {
 }
 
 locals {
-  credentials_map = { for idx, cred in data.vcf_credentials.sddc_creds.credentials : idx => {
+  credentials_map = { for cred in data.vcf_credentials.sddc_creds.credentials : "${cred.resource[0].name}-${cred.user_name}" => {
     resource_name   = cred.resource[0].name
     resource_type   = cred.resource[0].type
     resource_domain = cred.resource[0].domain
-    #auto_rotate_next_schedule = cred.auto_rotate_next_schedule
     credential_type = cred.credential_type
     user_name       = cred.user_name
     password        = cred.password
