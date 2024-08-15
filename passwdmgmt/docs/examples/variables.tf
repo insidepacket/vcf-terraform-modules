@@ -1,0 +1,22 @@
+variable "sddc_manager_username" {
+  description = "Username used to authenticate against an SDDC Manager instance"
+  default     = "administrator@vsphere.local"
+  type        = string
+}
+
+variable "sddc_manager_password" {
+  description = "Password used to authenticate against an SDDC Manager instance"
+  sensitive   = true
+}
+
+variable "sddc_manager_host" {
+  description = "Fully qualified domain name of an SDDC Manager instance"
+  default     = "sfo-vcf01.sfo.rainpole.io"
+  type        = string
+}
+
+variable "vault_address" {
+  description = "hashicorp vault"
+  default     = "http://10.221.78.150:8200"
+  type        = string
+}
