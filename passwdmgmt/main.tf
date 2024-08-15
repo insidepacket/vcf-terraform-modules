@@ -63,8 +63,10 @@ output "account_type" {
   value = data.vcf_credentials.sddc_creds.account_type
 }
 
-/*
-output "nsx" {
-  value = data.vcf_credentials.nsx_creds.credentials[0].resource[0].name
+output "last_rotate_time" {
+  value = {
+    for key, i in vcf_credentials_rotate.rotate : key => {
+      last_rotate_time = i.last_rotate_time
+    }
+  }
 }
-*/
