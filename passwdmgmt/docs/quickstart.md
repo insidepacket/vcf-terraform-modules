@@ -28,6 +28,6 @@ module "update-vcf-esx-service-pwd" {
   account_type          = "SERVICE"
 }
 ```
-YOu can see the complete example in the docs folder.
+You can see the complete example in the docs folder.
 
 When apply your template, use `terraform apply -parallelism=1`.
