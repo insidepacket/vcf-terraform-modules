@@ -4,10 +4,6 @@ terraform {
       source  = "vmware/vcf"
       version = "~> 0.10.0"
     }
-    vault = {
-      source  = "hashicorp/vault"
-      version = ">= 3.0"
-    }
   }
 }
 

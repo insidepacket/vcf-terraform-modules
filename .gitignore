@@ -2,3 +2,4 @@
 **/.terraform/
 **/main.tf.bak
 /passwdmgmt/
+**/.terraform.local.hcl
