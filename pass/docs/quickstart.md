@@ -6,7 +6,7 @@ The following shows the result in Vault post a module run.
 
 * ESXI Password registered in Vault
 <img src="images/vault_secrets.jpg" alt="VMware Cloud Foundation Password registered in Vault">
-* The metadata of ESXI Password
+* The metadata of an ESXI Password
 <img src="images/secret_meta.jpg" alt="VMware Cloud Foundation Password Metatdata">
 
 ## Prerequisites
