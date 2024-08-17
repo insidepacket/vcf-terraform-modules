@@ -5,9 +5,9 @@ This module leverages VMware Cloud Foundation Terraform Provider and HashiCorp V
 The following shows the result in Vault post a module run. 
 
 * ESXI Password registered in Vault
-<img src="images/vault_secrets.jpeg" alt="VMware Cloud Foundation Password registered in Vault">
+<img src="images/vault_secrets.jpg" alt="VMware Cloud Foundation Password registered in Vault">
 * The metadata of ESXI Password
-<img src="images/secret_meta.jpeg" alt="VMware Cloud Foundation Password Metatdata">
+<img src="images/secret_meta.jpg" alt="VMware Cloud Foundation Password Metatdata">
 
 ## Prerequisites
 * a running VMware Cloud Foundation environment
