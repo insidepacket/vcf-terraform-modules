@@ -3,3 +3,5 @@
 **/main.tf.bak
 /passwdmgmt/
 **/.terraform.lock.hcl
+**/terraform.tfstate
+**/terraform.tfstate.backup
