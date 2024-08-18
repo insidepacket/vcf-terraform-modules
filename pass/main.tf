@@ -44,4 +44,3 @@ output "secrets" {
   }
   sensitive = true
 }
-
