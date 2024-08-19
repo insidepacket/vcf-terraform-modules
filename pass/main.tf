@@ -16,7 +16,7 @@ locals {
 }
 
 resource "time_rotating" "rotate" {
-  rotation_minutes = 15
+  rotation_minutes = var.rotation_frequency_minutes
 }
 
 resource "time_static" "rotate" {
