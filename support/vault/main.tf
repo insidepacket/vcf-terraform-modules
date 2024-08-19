@@ -18,7 +18,8 @@ resource "vault_kv_secret_v2" "vault_secrets" {
   for_each = local.transformed_secrets
 
   mount               = "vcf"
-  name                = "${each.value.secret_id}-${each.value.resource_name}-${each.value.user_name}"
+  # name                = "${each.value.secret_id}-${each.value.resource_name}-${each.value.user_name}"
+  name                = "${each.value.resource_name}-${each.value.user_name}"
   cas                 = 1
   delete_all_versions = true
 
