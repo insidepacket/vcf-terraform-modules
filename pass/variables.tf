@@ -23,3 +23,12 @@ variable "account_type" {
   default = "SYSTEM"
 }
 
+variable "rotation_frequency_days" {
+  type = number
+  default = 90
+}
+
+variable "rotation_frequency_minutes" {
+  type = number
+  default = 15
+}

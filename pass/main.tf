@@ -15,6 +15,13 @@ locals {
   } }
 }
 
+resource "time_rotating" "rotate" {
+  rotation_minutes = 15
+}
+
+resource "time_static" "rotate" {
+  rfc3339 = time_rotating.rotate.rfc3339
+}
 resource "vcf_credentials_rotate" "rotate" {
   for_each = local.credentials_map
 
@@ -25,7 +32,11 @@ resource "vcf_credentials_rotate" "rotate" {
     credential_type = each.value.credential_type
     user_name       = each.value.user_name
   }
-
+  lifecycle {
+    replace_triggered_by = [
+      time_static.rotate
+    ]
+  }
 }
 
 
