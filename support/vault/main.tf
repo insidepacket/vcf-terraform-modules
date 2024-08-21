@@ -17,7 +17,7 @@ locals {
 resource "vault_kv_secret_v2" "vault_secrets" {
   for_each = local.transformed_secrets
 
-  mount               = "vcf"
+  mount = "vcf"
   # name                = "${each.value.secret_id}-${each.value.resource_name}-${each.value.user_name}"
   name                = "${each.value.resource_name}-${each.value.user_name}"
   cas                 = 1
@@ -37,6 +37,14 @@ resource "vault_kv_secret_v2" "vault_secrets" {
       type             = each.value.credential_type
       vcf_domain       = each.value.domain
       last_rotate_time = each.value.last_rotate_time
+    }
+  }
+}
+
+output "custom_metadata" {
+  value = {
+    for key, i in vault_kv_secret_v2.vault_secrets : key => {
+      custom_metadata   = i.custom_metadata
     }
   }
 }
