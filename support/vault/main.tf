@@ -43,8 +43,8 @@ resource "vault_kv_secret_v2" "vault_secrets" {
 
 output "custom_metadata" {
   value = {
-    for key, i in vault_kv_secret_v2.vault_secrets : key => {
-      custom_metadata   = i.custom_metadata
+    for key, vault_secret in vault_kv_secret_v2.vault_secrets : key => {
+      custom_metadata   = vault_secrets.custom_metadata
     }
   }
 }
