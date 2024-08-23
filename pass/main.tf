@@ -51,7 +51,7 @@ output "secrets" {
       secret_id        = i.id
       last_rotate_time = i.last_rotate_time
       domain           = local.credentials_map[key].resource_domain
-      sddc_manager     = var.var.sddc_manager_host
+      sddc_manager     = var.sddc_manager_host
     }
   }
   sensitive = true
