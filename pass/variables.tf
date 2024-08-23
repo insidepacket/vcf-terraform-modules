@@ -24,11 +24,11 @@ variable "account_type" {
 }
 
 variable "rotation_frequency_days" {
-  type = number
+  type    = number
   default = 90
 }
 
 variable "rotation_frequency_minutes" {
-  type = number
+  type    = number
   default = 15
 }

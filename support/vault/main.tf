@@ -10,6 +10,7 @@ locals {
       resource_type    = value.resource_type
       secret_id        = value.secret_id
       user_name        = value.user_name
+      sddc_manager     = value.sddc_manager
     }
   }
 }
@@ -37,6 +38,7 @@ resource "vault_kv_secret_v2" "vault_secrets" {
       type             = each.value.credential_type
       vcf_domain       = each.value.domain
       last_rotate_time = each.value.last_rotate_time
+      sddc_manager     = each.value.sddc_manager
     }
   }
 }
@@ -44,8 +46,8 @@ resource "vault_kv_secret_v2" "vault_secrets" {
 output "secrets_metadata" {
   value = {
     for key, vault_secret in vault_kv_secret_v2.vault_secrets : key => {
-      custom_metadata   = vault_secret.custom_metadata
-      key_version = vault_secret.metadata.version
+      custom_metadata = vault_secret.custom_metadata
+      key_version     = vault_secret.metadata.version
     }
   }
 }
