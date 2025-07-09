@@ -27,7 +27,6 @@ resource "vcf_credentials_rotate" "rotate" {
 
   resource_name = each.value.resource_name
   resource_type = each.value.resource_type
-  once_only     = false
   credentials {
     credential_type = each.value.credential_type
     user_name       = each.value.user_name
